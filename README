@@ -1,0 +1,43 @@
+* About:
+
+toy-matching-engine is designed to take in an arbitrary number of weighted
+matching criteria, and return a list of matches sorted by score.
+
+toy-matching-engine understands both positive and negative criteria: it allows
+one to prioritize matches that are the same along certain criterions, and
+different across others.
+
+* Install:
+
+toy-matching-engine has no dependencies to install other than python3.
+
+python3 is built in to many distributions, but if you don't have it, you may
+follow the official installation instructions found at
+https://www.python.org/downloads/
+
+* Run:
+
+from the toy-matching-engine project directory:
+
+python3 main.py data/example2_config.csv data/example2_people.csv outfile
+
+* Considerations:
+
+Absolute matching on location name (USA) is just silly. Our current algorithm
+would consider Brooklyn to be as far away from Manhattan as it is from Russia.
+
+This could be fixed by enriching our data set with geodata and using a
+"distance" metric instead of an absolute MATCH or NO MATCH here.
+
+We have no concept of synonyms. Our current algorithm would consider "Plumber"
+to be completely different from "Plumbing and Heating Specialist." This may be
+mitigated by applying machine learning to try to tease a structured taxonomy out
+of the data in our unstructured "occupation" field.
+
+Homographs also present a serious problem whether using absolute matching or
+machine learning: if someone recorded their occupation as "Engineer," we have no
+way of knowing whether they work in cloud services or in the boiler room of a
+locomotive.
+
+By Matt Ciocchi
+12/03/2017
